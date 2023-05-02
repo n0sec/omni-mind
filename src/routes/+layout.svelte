@@ -6,14 +6,20 @@
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
 
-	import { AppRail, AppRailTile, AppShell, Avatar } from '@skeletonlabs/skeleton';
+	import { AppBar, AppRail, AppRailTile, AppShell, LightSwitch } from '@skeletonlabs/skeleton';
 	import { writable, type Writable } from 'svelte/store';
-	import { filter, Emerald } from '@skeletonlabs/skeleton';
 
 	const storeValue: Writable<number> = writable(0);
 </script>
 
 <AppShell>
+	<svelte:fragment slot="header">
+		<!-- AppBar with Light Switch-->
+		<AppBar class="w-full items-end">
+			<LightSwitch />
+			<!-- ?? Does this look too weird?-->
+		</AppBar>
+	</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft">
 		<AppRail selected={storeValue} trail={1}>
 			<!-- Left Sidebar Content -->
@@ -25,15 +31,23 @@
 			<!-- Profile icon -->
 			<svelte:fragment slot="trail">
 				<AppRailTile label="Profile" value={1} tag="a">
-					<Avatar
-						src="https://i.pravatar.cc/100?img=3"
-						width="w-12"
-						style="filter: url({'#Emerald'})"
-					/>
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+						><path
+							fill="currentColor"
+							d="M12 19.2c-2.5 0-4.71-1.28-6-3.2c.03-2 4-3.1 6-3.1s5.97 1.1 6 3.1a7.232 7.232 0 0 1-6 3.2M12 5a3 3 0 0 1 3 3a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3m0-3A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10c0-5.53-4.5-10-10-10Z"
+						/></svg
+					>
 				</AppRailTile>
 			</svelte:fragment>
 		</AppRail>
 	</svelte:fragment>
+
+	<!-- A floating action button in the bottom right -->
+	<button type="button" class="btn-icon btn-icon-xl variant-filled absolute bottom-6 right-6"
+		><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+			><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2Z" /></svg
+		></button
+	>
 
 	<!-- Router Slot -->
 	<slot />
