@@ -13,6 +13,10 @@
 	export let loggedIn: boolean = false;
 </script>
 
+<svelte:head>
+	<title>Omni-Mind</title>
+</svelte:head>
+
 <AppShell>
 	<svelte:fragment slot="pageHeader">
 		<!-- AppBar with Light Switch-->
