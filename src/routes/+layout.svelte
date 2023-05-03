@@ -8,13 +8,14 @@
 
 	import { AppBar, AppRail, AppRailTile, AppShell, LightSwitch } from '@skeletonlabs/skeleton';
 	import { writable, type Writable } from 'svelte/store';
+	import logo from '$lib/assets/logo.png';
 
 	const storeValue: Writable<number> = writable(0);
 	export let loggedIn: boolean = false;
 </script>
 
 <svelte:head>
-	<title>Omni-Mind</title>
+	<title>OmniMind</title>
 </svelte:head>
 
 <AppShell>
@@ -23,7 +24,8 @@
 		<AppBar class="w-full">
 			<svelte:fragment slot="lead">
 				<!-- Logo -->
-				<h1 class="unstyled text-xl font-bold">Omni-Mind</h1>
+				<img src={logo} alt="Omni-Mind Logo" class="w-12 h-12 mr-2" />
+				<h1 class="unstyled text-xl font-bold">OmniMind</h1>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<LightSwitch />
