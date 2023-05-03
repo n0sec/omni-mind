@@ -18,11 +18,17 @@
 </svelte:head>
 
 <AppShell>
-	<svelte:fragment slot="pageHeader">
+	<svelte:fragment slot="header">
 		<!-- AppBar with Light Switch-->
-		<AppBar class="w-full items-end">
-			<LightSwitch />
-			<!-- ?? Does this look too weird?-->
+		<AppBar class="w-full">
+			<svelte:fragment slot="lead">
+				<!-- Logo -->
+				<h1 class="unstyled text-xl font-bold">Omni-Mind</h1>
+			</svelte:fragment>
+			<svelte:fragment slot="trail">
+				<LightSwitch />
+				<!-- ?? Does this look too weird?-->
+			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft">
